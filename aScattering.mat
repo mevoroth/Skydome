@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: aScattering
+  m_Shader: {fileID: 4800000, guid: fcf1f2967d43ea54b90fb394d90ad1bb, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: noisetex
+        second:
+          m_Texture: {fileID: 2800000, guid: c0bc6ddcbdd31e04d9029ee4002a1637, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: starTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: 20b166244d39dc346824ba27b04c5ada, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: curveTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: 26267d5e24ee2824cb6c652bf6ad6cb6, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: DirectionalityFactor
+        second: .600000024
+      data:
+        first:
+          name: SunColorIntensity
+        second: 1
+      data:
+        first:
+          name: tint
+        second: 1
+      data:
+        first:
+          name: fade
+        second: .00708197989
+      data:
+        first:
+          name: cloudSpeed1
+        second: 1
+      data:
+        first:
+          name: cloudSpeed2
+        second: 1.5
+      data:
+        first:
+          name: plane_height1
+        second: 12
+      data:
+        first:
+          name: plane_height2
+        second: 13
+      data:
+        first:
+          name: hueShift
+        second: 0
+      data:
+        first:
+          name: satM
+        second: 1
+      data:
+        first:
+          name: satT
+        second: 0
+      data:
+        first:
+          name: briM
+        second: 1
+      data:
+        first:
+          name: briT
+        second: 0
+    m_Colors:
+      data:
+        first:
+          name: LightDir
+        second: {r: .369196057, g: -.473943174, b: -.79941994, a: 0}
+      data:
+        first:
+          name: vBetaRayleigh
+        second: {r: .00206876174, g: .00349836028, b: .00725419912, a: 0}
+      data:
+        first:
+          name: BetaRayTheta
+        second: {r: .000387892826, g: .000655942538, b: .00136016239, a: 0}
+      data:
+        first:
+          name: vBetaMie
+        second: {r: .00127910206, g: .00165605976, b: .00234276615, a: 0}
+      data:
+        first:
+          name: BetaMieTheta
+        second: {r: .000933651114, g: .00121412007, b: .00174833287, a: 0}
+      data:
+        first:
+          name: g_vEyePt
+        second: {r: -30.7649231, g: 4.16494608, b: -74.3138885, a: 0}
+      data:
+        first:
+          name: g_vSunColor
+        second: {r: .758212626, g: .681159079, b: .52791518, a: 0}
+      data:
+        first:
+          name: wind_direction
+        second: {r: .873693049, g: 1.2048682, b: 1.23658633, a: .300000012}
+--- !u!1002 &2100001
+EditorExtensionImpl:
+  serializedVersion: 6
