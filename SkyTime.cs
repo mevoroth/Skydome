@@ -25,28 +25,32 @@ public class SkyTime : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		degPerHourNew = (360/((Time.frameCount / Time.realtimeSinceStartup)*360*(hourLength)));
-		if(enableTimeProgression == true)
+		//degPerHourNew = (360/((Time.frameCount / Time.realtimeSinceStartup)*360*(hourLength)));
+		//if(enableTimeProgression == true)
+		//{
+		//if(skydomeScript.TIME < 23.9)
+		//{
+		//skydomeScript.TIME += (float)degPerHourNew;
+		//}
+		//else
+		//{
+		//skydomeScript.TIME=0;
+		//	if(progressJuilanDate == true)
+		//	{
+		//		if( skydomeScript.JULIANDATE < 365)
+		//		{
+		//		skydomeScript.JULIANDATE += 1;
+		//		}
+		//		else
+		//		{
+		//		skydomeScript.JULIANDATE=1;
+		//		}
+		//	}
+		//}
+		//}
+		if (enableTimeProgression)
 		{
-		if(skydomeScript.TIME < 23.9)
-		{
-		skydomeScript.TIME += (float)degPerHourNew;
-		}
-		else
-		{
-		skydomeScript.TIME=0;
-			if(progressJuilanDate == true)
-			{
-				if( skydomeScript.JULIANDATE < 365)
-				{
-				skydomeScript.JULIANDATE += 1;
-				}
-				else
-				{
-				skydomeScript.JULIANDATE=1;
-				}
-			}
-		}
+			skydomeScript.TIME = Globals.Get.TIME_ENGINE.TimeRatio * 23.9f;
 		}
 		
 		

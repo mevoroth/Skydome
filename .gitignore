@@ -36,6 +36,7 @@ Assets/UnityVS.meta
 *.bak.meta
 *.orig
 *.orig.meta
+*.meta
 
 .DS_Store
 .DS_Store?
