@@ -79,6 +79,7 @@ Shader "aScattering 2.1" {
 			float2 skydomecoluv 	: TEXCOORD3;// UV for the cloud layer
 			float orgposz 			: TEXCOORD4;
 			float2 starUV 			: TEXCOORD5;
+			float3 normal;
 		};
 
 		float3 BetaR(float Theta){
@@ -182,6 +183,9 @@ Shader "aScattering 2.1" {
 			OUT.intensity=max(normVect.y-fadeheight,0);
 			OUT.color.rgb=Saturate(Curve(L*g_vSunColor*SunColorIntensity),hueShift,satM,briM,satT,briT);
 			OUT.color.a=1.0f;
+
+			OUT.normal = Input.normal;
+
 			return OUT;
 		}
 		float4 frag (vertex_output IN): COLOR {
@@ -191,11 +195,12 @@ Shader "aScattering 2.1" {
 			float4 stars=tex2D(starTexture,IN.starUV.xy);
 			float4 cloud_color=(noise1*noise2);
 			float intensity=1-exp(-512*pow(IN.intensity,1));
-			stars*=1-saturate(g_vSunColor.z* 4 + cloud_color.a*2);
+			//stars*=1-saturate(g_vSunColor.z* 4 + cloud_color.a*2);
 			float cloud_alpha = max(noise1.a, noise2.a);
-			stars*= cloud_alpha *2;
-			color=stars;
-			//color+=(g_vSunColor.z+tint)*cloud_color.z*(intensity)*cloud_color;
+			//stars*= cloud_alpha/2;
+
+			color=stars*clamp(pow((1 - (sqrt((1 + dot(IN.normal, -LightDir))/2) + 0) * 1), 5), 0, 1);
+			color+=(g_vSunColor.z+tint)*cloud_color.z*(intensity)*cloud_color;
 			color+= tint*cloud_color.a*(intensity)*float4(Saturate(g_vSunColor,0,1.5,1,0,0),1);
 			color+=IN.color;
 			color.a=1.0;

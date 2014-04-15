@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: aScattering
-  m_Shader: {fileID: 4800000, guid: 77f8f6aa28ed9ad42a06f6261fe755e5, type: 3}
+  m_Shader: {fileID: 4800000, guid: fcf1f2967d43ea54b90fb394d90ad1bb, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,7 +17,7 @@ Material:
         first:
           name: noisetex
         second:
-          m_Texture: {fileID: 2800000, guid: 8404392d5deeca94db4368707dcbdd6a, type: 3}
+          m_Texture: {fileID: 2800000, guid: 26f0c97e4b2023f418d430ff8f6aa556, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -115,7 +115,7 @@ Material:
       data:
         first:
           name: g_vSunColor
-        second: {r: .758212626, g: .681159079, b: .52791518, a: 0}
+        second: {r: .888074517, g: .755694628, b: .413824439, a: 0}
       data:
         first:
           name: wind_direction
