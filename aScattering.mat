@@ -17,7 +17,7 @@ Material:
         first:
           name: noisetex
         second:
-          m_Texture: {fileID: 2800000, guid: 26f0c97e4b2023f418d430ff8f6aa556, type: 3}
+          m_Texture: {fileID: 2800000, guid: a357f58f32024564baaf0e2dd98cd08b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -111,11 +111,11 @@ Material:
       data:
         first:
           name: g_vEyePt
-        second: {r: 5.97290182, g: 3.97753048, b: -7.96504784, a: 0}
+        second: {r: 5.97290182, g: 7.49727917, b: -30.8241291, a: 0}
       data:
         first:
           name: g_vSunColor
-        second: {r: .888074517, g: .755694628, b: .413824439, a: 0}
+        second: {r: .758212626, g: .681159079, b: .52791518, a: 0}
       data:
         first:
           name: wind_direction
