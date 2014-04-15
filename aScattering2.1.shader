@@ -188,6 +188,12 @@ Shader "aScattering 2.1" {
 
 			return OUT;
 		}
+
+		float spreadSkybox(float cosine)
+		{
+			return cos(acos(cosine)*0.5);
+		}
+
 		float4 frag (vertex_output IN): COLOR {
 			float4 color:COLOR;
 			float4 noise1=tex2D(noisetex,IN.uvcoords1.xy/IN.orgposz);
@@ -199,7 +205,7 @@ Shader "aScattering 2.1" {
 			float cloud_alpha = max(noise1.a, noise2.a);
 			//stars*= cloud_alpha/2;
 
-			color=stars*clamp(pow((1 - (sqrt((1 + dot(IN.normal, -LightDir))/2) + 0) * 1), 5), 0, 1);
+			color=stars*pow(1 - (1 + spreadSkybox(dot(IN.normal, -LightDir)))*0.5, 2);
 			color+=(g_vSunColor.z+tint)*cloud_color.z*(intensity)*cloud_color;
 			color+= tint*cloud_color.a*(intensity)*float4(Saturate(g_vSunColor,0,1.5,1,0,0),1);
 			color+=IN.color;
