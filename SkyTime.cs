@@ -11,6 +11,10 @@ public class SkyTime : MonoBehaviour {
 	private double degPerHourNew;
 	public bool progressJuilanDate = true;
 	public bool enableTimeProgression = true;
+
+	[Range(0f, 23f)]
+	public float m_hourStart = 6f;
+
 	// Use this for initialization
 	void Start () {
 	//Length of an in-game hour eg. 1 = 2.5 2 = 5 (in seconds)
@@ -50,7 +54,7 @@ public class SkyTime : MonoBehaviour {
 		//}
 		if (enableTimeProgression)
 		{
-			skydomeScript.TIME = Globals.Get.TIME_ENGINE.TimeRatio * 23.9f;
+			skydomeScript.TIME = Globals.Get.TIME_ENGINE.TimeRatio * (23.9f - m_hourStart) + m_hourStart;
 		}
 		
 		
