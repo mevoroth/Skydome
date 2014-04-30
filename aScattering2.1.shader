@@ -205,7 +205,8 @@ Shader "aScattering 2.1" {
 			float cloud_alpha = max(noise1.a, noise2.a);
 			//stars*= cloud_alpha/2;
 
-			color=stars*pow(1 - (1 + spreadSkybox(dot(IN.normal, -LightDir)))*0.5, 2);
+			//color=stars*pow(1 - (1 + spreadSkybox(dot(IN.normal, -LightDir)))*0.5, 2);
+			color = stars;
 			color+=(g_vSunColor.z+tint)*cloud_color.z*(intensity)*cloud_color;
 			color+= tint*cloud_color.a*(intensity)*float4(Saturate(g_vSunColor,0,1.5,1,0,0),1);
 			color+=IN.color;
