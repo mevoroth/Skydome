@@ -173,8 +173,18 @@ Shader "aScattering 2.1" {
 			OUT.orgposz=abs(Input.vertex.y);
 			float2 vectLength1=float2(normVect.z,normVect.x)*plane_height1;
 			float2 vectLength2=float2(normVect.z,normVect.x)*plane_height2;
-			float t1=_Time*cloudSpeed1;
-			float t2=_Time*cloudSpeed2;
+			
+			// control looping animation of clouds:
+			// loop start/end point should be when there are no clouds visible
+			// to result in a smooth transition between loops.
+			float a = 0.05; // loop frequency. larger number loops clouds more frequently
+			float b = -10.0; // time offset for initial position of clouds
+			float t = a * _Time;
+			t -= floor(t); // sawtooth function (loop)
+			t /= a; // time-dilate. compensates cloud speed for changes in loop frequency
+			t += b; // time-shift. offsets initial position of clouds
+			float t1 = t * cloudSpeed1;
+			float t2 = t * cloudSpeed2;
 			OUT.uvcoords1.xy=0.9*vectLength1+t1/10*wind_direction.xy*OUT.orgposz;
 			OUT.uvcoords2.xy=0.4*vectLength2+t2/10*wind_direction.zw*OUT.orgposz;
 			float fadeheight=fade/64;
